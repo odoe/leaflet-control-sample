@@ -1,5 +1,7 @@
 // refer to the IControl interface
 // http://leafletjs.com/reference.html#icontrol
+// sample influenced by leaflet-geocoder
+// https://github.com/perliedman/leaflet-control-geocoder
 L.Control.Search = L.Control.extend({
 	options: {
     // topright, topleft, bottomleft, bottomright
