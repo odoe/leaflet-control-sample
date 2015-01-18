@@ -17,3 +17,8 @@ var geojsonLayer = L.geoJson.ajax('parks.geojson', {
 });
 
 geojsonLayer.addTo(map);
+
+L.control.search({
+  data: items
+}).addTo(map);
+
