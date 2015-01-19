@@ -35,7 +35,7 @@ L.Control.Search = L.Control.extend({
     this.input.placeholder = this.options.placeholder;
     this.results = L.DomUtil.create('div', 'list-group', group);
     L.DomEvent.addListener(this.input, 'keyup', _.debounce(this.keyup, 300), this);
-    L.DomEvent.addListener(this.form, 'submit', this.find, this);
+    L.DomEvent.addListener(this.form, 'submit', this.submit, this);
     L.DomEvent.disableClickPropagation(container);
     return container;
   },
