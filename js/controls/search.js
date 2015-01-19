@@ -4,8 +4,8 @@
 // https://github.com/perliedman/leaflet-control-geocoder
 
 function sortParks(a, b) {
-  var _a = a.properties.park;
-  var _b = b.properties.park;
+  var _a = a.feature.properties.park;
+  var _b = b.feature.properties.park;
   if (_a < _b) {
     return -1;
   }
@@ -52,13 +52,13 @@ L.Control.Search = L.Control.extend({
       if (this.input.value.length > 2) {
         var value = this.input.value;
         var results = _.take(_.filter(this.options.data, function(x) {
-          return x.properties.park.toUpperCase().indexOf(value.toUpperCase()) > -1;
+          return x.feature.properties.park.toUpperCase().indexOf(value.toUpperCase()) > -1;
         }).sort(sortParks), 10);
         this.resultElems = _.map(results, function(x) {
           var a = L.DomUtil.create('a', 'list-group-item');
           a.href = '';
-          a.setAttribute('data-result-name', x.properties.park);
-          a.innerHTML = x.properties.park;
+          a.setAttribute('data-result-name', x.feature.properties.park);
+          a.innerHTML = x.feature.properties.park;
           this.results.appendChild(a);
           L.DomEvent.addListener(a, 'click', this.itemSelected, this);
           return a;
