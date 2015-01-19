@@ -3,16 +3,16 @@
 // sample influenced by leaflet-geocoder
 // https://github.com/perliedman/leaflet-control-geocoder
 L.Control.Search = L.Control.extend({
-	options: {
+  options: {
     // topright, topleft, bottomleft, bottomright
     position: 'topright',
     placeholder: 'Search...'
-	},
+  },
   initialize: function (options /*{ data: {...}  }*/) {
     // constructor
     L.Util.setOptions(this, options);
-	},
-	onAdd: function (map) {
+  },
+  onAdd: function (map) {
     // happens after added to map
     var container = L.DomUtil.create('div', 'search-container');
     this.form = L.DomUtil.create('form', 'form', container);
