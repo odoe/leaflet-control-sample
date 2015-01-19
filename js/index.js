@@ -11,7 +11,7 @@ var items = [];
 // https://github.com/calvinmetcalf/leaflet-ajax
 var geojsonLayer = L.geoJson.ajax('parks.geojson', {
   onEachFeature: function(data, layer) {
-    items.push(data);
+    items.push(layer);
     layer.bindPopup('<h3>' + data.properties.park + '</h3>');
   }
 });
