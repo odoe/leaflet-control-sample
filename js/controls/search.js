@@ -1,6 +1,6 @@
 // refer to the IControl interface
 // http://leafletjs.com/reference.html#icontrol
-L.Control.AutoComplete = L.Control.extend({
+L.Control.Search = L.Control.extend({
   options: {
     // topright, topleft, bottomleft, bottomright
     position: 'topright'
