@@ -54,7 +54,7 @@ L.Control.Search = L.Control.extend({
         var results = _.take(_.filter(this.options.data, function(x) {
           return x.feature.properties.park.toUpperCase().indexOf(value.toUpperCase()) > -1;
         }).sort(sortParks), 10);
-        this.resultElems = _.map(results, function(x) {
+        _.map(results, function(x) {
           var a = L.DomUtil.create('a', 'list-group-item');
           a.href = '';
           a.setAttribute('data-result-name', x.feature.properties.park);
@@ -63,7 +63,6 @@ L.Control.Search = L.Control.extend({
           L.DomEvent.addListener(a, 'click', this.itemSelected, this);
           return a;
         }, this);
-        this._count = -1;
       }
     }
   },
