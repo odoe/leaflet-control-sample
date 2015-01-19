@@ -50,6 +50,7 @@ L.Control.Search = L.Control.extend({
     } else {
       this.results.innerHTML = '';
       if (this.input.value.length > 2) {
+        var value = this.input.value;
         var results = _.take(_.filter(this.options.data, function(x) {
           return x.feature.properties.park.toUpperCase().indexOf(value.toUpperCase()) > -1;
         }).sort(sortParks), 10);
