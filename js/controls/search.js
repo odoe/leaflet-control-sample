@@ -29,7 +29,7 @@ L.Control.Search = L.Control.extend({
   onRemove: function (map) {
     // when removed
     L.DomEvent.removeListener(this._input, 'keyup', this.keyup, this);
-    L.DomEvent.removeListener(form, 'submit', this.find, this);
+    L.DomEvent.removeListener(form, 'submit', this.submit, this);
   },
   keyup: function() {},
   submit: function() {},
