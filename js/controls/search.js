@@ -35,14 +35,14 @@ L.Control.Search = L.Control.extend({
     this.input.placeholder = this.options.placeholder;
     this.results = L.DomUtil.create('div', 'list-group', group);
     L.DomEvent.addListener(this.input, 'keyup', _.debounce(this.keyup, 300), this);
-    L.DomEvent.addListener(this.form, 'submit', this.find, this);
+    L.DomEvent.addListener(this.form, 'submit', this.submit, this);
     L.DomEvent.disableClickPropagation(container);
     return container;
   },
   onRemove: function (map) {
     // when removed
     L.DomEvent.removeListener(this._input, 'keyup', this.keyup, this);
-    L.DomEvent.removeListener(form, 'submit', this.find, this);
+    L.DomEvent.removeListener(form, 'submit', this.submit, this);
   },
   keyup: function(e) {
     if (e.keyCode === 38 || e.keyCode === 40) {
@@ -80,8 +80,9 @@ L.Control.Search = L.Control.extend({
     }
     this.results.innerHTML = '';
   },
-  submit: function() {},
-  find: function() {}
+  submit: function(e) {
+    L.DomEvent.preventDefault(e);
+  }
 });
 
 L.control.search = function(id, options) {
