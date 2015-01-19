@@ -15,3 +15,7 @@ L.Control.AutoComplete = L.Control.extend({
     // when removed
   }
 });
+
+L.control.seach = function(id, options) {
+    return new L.Control.Search(id, options);
+};
