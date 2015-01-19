@@ -42,7 +42,7 @@ L.Control.Search = L.Control.extend({
   onRemove: function (map) {
     // when removed
     L.DomEvent.removeListener(this._input, 'keyup', this.keyup, this);
-    L.DomEvent.removeListener(form, 'submit', this.find, this);
+    L.DomEvent.removeListener(form, 'submit', this.submit, this);
   },
   keyup: function(e) {
     if (e.keyCode === 38 || e.keyCode === 40) {
@@ -70,8 +70,9 @@ L.Control.Search = L.Control.extend({
   itemSelected: function(e) {
     L.DomEvent.preventDefault(e);
   },
-  submit: function() {},
-  find: function() {}
+  submit: function(e) {
+    L.DomEvent.preventDefault(e);
+  }
 });
 
 L.control.search = function(id, options) {
